@@ -1265,6 +1265,11 @@ class AccountMoveFunctions(models.Model):
                                 MontoExoneracion = round(LineaSubTotal * ( percent / 100),5)
                                 exoneration['MontoExoneracion'] =  MontoExoneracion
                                 inv_lines[arrayCount]['Impuesto'].update( dict({'Exoneracion': exoneration }) )
+                                
+                                if percent == 0 and LineaImpuestoTarifa == 0:
+                                    percent = 1
+                                    LineaImpuestoTarifa = 1
+                                    
                                 if i.product_id.type == 'service':
                                     TotalServExonerado = TotalServExonerado + LineaSubTotal * ( percent / LineaImpuestoTarifa )
                                 else:
