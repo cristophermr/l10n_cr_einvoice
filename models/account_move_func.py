@@ -1267,9 +1267,8 @@ class AccountMoveFunctions(models.Model):
                                 inv_lines[arrayCount]['Impuesto'].update( dict({'Exoneracion': exoneration }) )
                                 
                                 if percent == 0 and LineaImpuestoTarifa == 0:
-                                    percent = 1
-                                    LineaImpuestoTarifa = 1
-                                    
+                                    raise ValidationError("Error: Revisar Impuestos vrs Posicion Fiscal")
+                                
                                 if i.product_id.type == 'service':
                                     TotalServExonerado = TotalServExonerado + LineaSubTotal * ( percent / LineaImpuestoTarifa )
                                 else:
