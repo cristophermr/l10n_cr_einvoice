@@ -7,7 +7,8 @@ class AccountMove(models.Model):
 
     clave_proveedor = fields.Char("Clave Proveedor")
     numero_consecutivo_aceptacion = fields.Char("Numero Consecutivo Aceptacion")
-    
+    ''' 
+    # 1725475294
     date = fields.Date(string='Date', required=True, index=True, readonly=True,
         states={'draft': [('readonly', False)]},
          default=datetime.now(tz=pytz.timezone('America/Costa_Rica')).strftime("%Y-%m-%d %H:%M:%S"))
@@ -15,7 +16,7 @@ class AccountMove(models.Model):
     invoice_date = fields.Date(string='Invoice/Bill Date', readonly=True, index=True, copy=False,
         states={'draft': [('readonly', False)]},
         default=datetime.now(tz=pytz.timezone('America/Costa_Rica')).strftime("%Y-%m-%d %H:%M:%S"))
-    
+    '''
     fe_clave = fields.Char(string="Clave", size=50, copy=False)
     source_date = fields.Datetime(string="Fecha Emision_S")
     fe_fecha_emision = fields.Char(string="Fecha Emision")
